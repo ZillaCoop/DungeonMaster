@@ -32,7 +32,7 @@ namespace DungeonMaster.Models.HeroClasses
             Level += 1;
             LevelAttributes.Strength += 1;
             LevelAttributes.Dexterity += 5;
-            LevelAttributes.Strength += 1;      
+            LevelAttributes.Intelligence += 1;      
         }
 
     }
