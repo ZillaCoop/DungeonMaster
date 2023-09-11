@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonMaster.Models.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,19 +11,16 @@ namespace DungeonMaster.Models.HeroClasses
     {
         public string Name { get; set; }
         public int Level { get; set; } = 1; //Sets default level to 1.
-
+        public HeroAttribute LevelAttributes { get; set; }
         public BaseHero(string name)
         {
             Name = name;
+            LevelAttributes = new HeroAttribute();
+
         }
 
-        public string Display()
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine($"Name: {Name}");
+        public abstract string Display();
 
-            return stringBuilder.ToString();
-        }
 
     }
 

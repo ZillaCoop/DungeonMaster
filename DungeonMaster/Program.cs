@@ -6,7 +6,7 @@ namespace DungeonMaster
     {
         static void Main(string[] args)
         {
-            BaseHero jens = new Archer("Jens");
+            BaseHero jens = new Archer("Jens the Archer");
             
             Console.WriteLine(jens.Display());
         }
