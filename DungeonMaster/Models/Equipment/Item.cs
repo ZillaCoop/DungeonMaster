@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace DungeonMaster.Models.Equipment
 {
-    internal class Item
+    public abstract class Item
     {
+        //Doesn't need to be changed after creation. Therefore no sets.
+        public String Name { get; }
+        public int RequiredLevel { get; }
+        //public Slot Slot { get; }
+
+        protected Item(string name, int requiredLevel /*, Slot slot */) {
+            Name = name;
+            RequiredLevel = requiredLevel;
+            //Slot = slot;
+        }
     }
 }
