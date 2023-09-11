@@ -1,0 +1,14 @@
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\bin\Debug\net6.0\DungeonMaster.exe
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\bin\Debug\net6.0\DungeonMaster.deps.json
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\bin\Debug\net6.0\DungeonMaster.runtimeconfig.json
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\bin\Debug\net6.0\DungeonMaster.dll
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\bin\Debug\net6.0\DungeonMaster.pdb
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\obj\Debug\net6.0\DungeonMaster.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\obj\Debug\net6.0\DungeonMaster.AssemblyInfoInputs.cache
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\obj\Debug\net6.0\DungeonMaster.AssemblyInfo.cs
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\obj\Debug\net6.0\DungeonMaster.csproj.CoreCompileInputs.cache
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\obj\Debug\net6.0\DungeonMaster.dll
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\obj\Debug\net6.0\refint\DungeonMaster.dll
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\obj\Debug\net6.0\DungeonMaster.pdb
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\obj\Debug\net6.0\DungeonMaster.genruntimeconfig.cache
+C:\Users\NFredr\source\repos\DungeonMaster\DungeonMaster\obj\Debug\net6.0\ref\DungeonMaster.dll

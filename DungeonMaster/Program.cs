@@ -1,10 +1,16 @@
-﻿namespace DungeonMaster
+﻿using DungeonMaster.Models.HeroClasses;
+
+namespace DungeonMaster
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            BaseHero jens = new Archer("Jens");
+            
+            Console.WriteLine(jens.Display());
         }
+
+
     }
 }
