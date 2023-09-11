@@ -20,6 +20,7 @@ namespace DungeonMaster.Models.HeroClasses
         }
 
         public abstract string Display();
+        public abstract void LevelUp();
 
 
     }

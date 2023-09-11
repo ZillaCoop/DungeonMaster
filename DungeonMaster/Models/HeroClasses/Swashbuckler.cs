@@ -26,5 +26,13 @@ namespace DungeonMaster.Models.HeroClasses
 
             return stringBuilder.ToString();
         }
+
+        public override void LevelUp()
+        {
+            Level += 1;
+            LevelAttributes.Strength += 2;
+            LevelAttributes.Dexterity += 6;
+            LevelAttributes.Strength += 1;
+        }
     }
 }
