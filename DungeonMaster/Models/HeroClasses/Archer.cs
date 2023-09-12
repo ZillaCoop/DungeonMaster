@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DungeonMaster.Models.HeroClasses
 {
-    public class Archer : BaseHero
+    public class Archer : Hero
     {
         public Archer(string name) : base(name) {
             LevelAttributes = new HeroAttribute(1, 7, 1);

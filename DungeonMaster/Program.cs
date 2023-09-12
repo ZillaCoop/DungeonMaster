@@ -6,10 +6,10 @@ namespace DungeonMaster
     {
         static void Main(string[] args)
         {
-            BaseHero jens = new Archer("Jens the Archer");
-            BaseHero james = new Wizard("James the Wizard");
-            BaseHero jonathan = new Barbarian("Jonathan the Barbarian");
-            BaseHero jeffrey = new Swashbuckler("Jeffrey the Swashbuckler");
+            Hero jens = new Archer("Jens the Archer");
+            Hero james = new Wizard("James the Wizard");
+            Hero jonathan = new Barbarian("Jonathan the Barbarian");
+            Hero jeffrey = new Swashbuckler("Jeffrey the Swashbuckler");
             
             Console.WriteLine("Base Classes");
             Console.WriteLine("------------");

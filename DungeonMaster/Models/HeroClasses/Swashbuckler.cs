@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DungeonMaster.Models.HeroClasses
 {
-    internal class Swashbuckler : BaseHero
+    internal class Swashbuckler : Hero
     {
         public Swashbuckler(string name) : base(name)
         {

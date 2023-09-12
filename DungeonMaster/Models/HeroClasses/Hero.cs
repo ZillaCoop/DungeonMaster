@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DungeonMaster.Models.HeroClasses
 {
-    public abstract class BaseHero
+    public abstract class Hero
     {
         public string Name { get; set; }
         public int Level { get; set; } = 1; //Sets default level to 1.
         public HeroAttribute LevelAttributes { get; set; }
-        public BaseHero(string name)
+        public Hero(string name)
         {
             Name = name;
             LevelAttributes = new HeroAttribute();

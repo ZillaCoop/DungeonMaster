@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace DungeonMaster.Models.HeroClasses
 {
-    internal class Wizard : BaseHero
+    internal class Wizard : Hero
     {
         public Wizard(string name) : base(name)
         {
