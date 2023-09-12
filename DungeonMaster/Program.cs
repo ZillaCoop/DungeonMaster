@@ -1,6 +1,8 @@
 ﻿using DungeonMaster.Models.Enums;
 using DungeonMaster.Models.Equipment;
+using DungeonMaster.Models.Exceptions;
 using DungeonMaster.Models.HeroClasses;
+using DungeonMaster.Models.Utilities;
 
 namespace DungeonMaster
 {
@@ -30,10 +32,22 @@ namespace DungeonMaster
 
             Console.WriteLine("Equipping");
             Console.WriteLine("---------");
-            Weapon hatchet = new Weapon("Hatchet", 1, WeaponType.Hatchet, 2);
-            jonathan.Equip(hatchet);
-            Console.WriteLine(jonathan.Display());
-            
+            Weapon bow = new Weapon("Long Bow", 1, WeaponType.Bow, 5);
+            Armor plateArmor = new Armor("Plate Mail", 1, ArmorType.Plate, new HeroAttribute(5, 0, 0));
+            Weapon sword = new Weapon("Sword", 1, WeaponType.Sword, 8);
+
+            // Attempt to equip items. Can be improved.
+            try
+            {
+                jens.Equip(bow); // Jens can equip a bow
+                jonathan.Equip(plateArmor); // Jonathan can equip plate armor
+                jens.Equip(sword); // This will throw an exception as Jens can't equip a sword
+            }
+            catch (InvalidEquipmentException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
         }
 
 

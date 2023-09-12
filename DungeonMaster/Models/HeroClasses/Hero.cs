@@ -15,6 +15,10 @@ namespace DungeonMaster.Models.HeroClasses
         public int Level { get; set; } = 1; //Sets default level to 1.
         public HeroAttribute LevelAttributes { get; set; }
 
+        protected abstract List<WeaponType> ValidWeaponTypes { get; }
+        protected abstract List<ArmorType> ValidArmorTypes { get; }
+
+
         //Creates "container" for equipment and assigning temporary null values
         public Dictionary<Slot, Item> Equipment { get; } = new Dictionary<Slot, Item>
         {
@@ -23,6 +27,10 @@ namespace DungeonMaster.Models.HeroClasses
             { Slot.Body, null },
             { Slot.Legs, null }
         };  
+
+       
+
+
 
         public Hero(string name)
         {

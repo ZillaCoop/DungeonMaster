@@ -1,5 +1,6 @@
 ﻿using DungeonMaster.Models.Enums;
 using DungeonMaster.Models.Equipment;
+using DungeonMaster.Models.Exceptions;
 using DungeonMaster.Models.Utilities;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ namespace DungeonMaster.Models.HeroClasses
 {
     internal class Barbarian : Hero
     {
-        // Gets and sets equipped weapon to show in display
-        public Item EquippedWeapon { get; protected set; }
+        protected override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Hatchet, WeaponType.Mace, WeaponType.Sword };
+        protected override List<ArmorType> ValidArmorTypes => new List<ArmorType> { ArmorType.Plate, ArmorType.Mail };
 
         public Barbarian(string name) : base(name)
         {
@@ -30,8 +31,17 @@ namespace DungeonMaster.Models.HeroClasses
 
         public override void Equip(Item item)
         {
-            if(item.Slot == Slot.Weapon) { 
-                EquippedWeapon = item;
+            if (item is Weapon weapon && ValidWeaponTypes.Contains(weapon.WeaponType))
+            {
+                Equipment[item.Slot] = item;
+            }
+            else if (item is Armor armor && ValidArmorTypes.Contains(armor.ArmorType))
+            {
+                Equipment[item.Slot] = item;
+            }
+            else
+            {
+                throw new InvalidEquipmentException("Invalid equipment type or level requirement.");
             }
         }
 
@@ -44,8 +54,6 @@ namespace DungeonMaster.Models.HeroClasses
             stringBuilder.AppendLine($"Strength: {LevelAttributes.Strength}");
             stringBuilder.AppendLine($"Dexterity: {LevelAttributes.Dexterity}");
             stringBuilder.AppendLine($"Intelligence: {LevelAttributes.Intelligence}");
-            if (EquippedWeapon != null)
-                stringBuilder.AppendLine($"Equipped Weapon: {EquippedWeapon.Name}"); 
         
             return stringBuilder.ToString();
         }

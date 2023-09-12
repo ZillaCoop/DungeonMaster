@@ -1,5 +1,6 @@
 ﻿using DungeonMaster.Models.Enums;
 using DungeonMaster.Models.Equipment;
+using DungeonMaster.Models.Exceptions;
 using DungeonMaster.Models.Utilities;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,9 @@ namespace DungeonMaster.Models.HeroClasses
 {
     public class Archer : Hero
     {
-        public Item EquippedWeapon { get; protected set; }
+        protected override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Bow };
+        protected override List<ArmorType> ValidArmorTypes => new List<ArmorType> { ArmorType.Leather, ArmorType.Mail };
+
 
         public Archer(string name) : base(name) {
             LevelAttributes = new HeroAttribute(1, 7, 1);
@@ -24,16 +27,24 @@ namespace DungeonMaster.Models.HeroClasses
             Level += 1;
             LevelAttributes.Strength += 1;
             LevelAttributes.Dexterity += 5;
-            LevelAttributes.Intelligence += 1;      
+            LevelAttributes.Intelligence += 1;
         }
 
         public override void Equip(Item item)
         {
-            if (item.Slot == Slot.Weapon)
+            if (item is Weapon weapon && ValidWeaponTypes.Contains(weapon.WeaponType)){
+                Equipment[item.Slot] = item;
+            }
+            else if (item is Armor armor && ValidArmorTypes.Contains(armor.ArmorType))
             {
-                EquippedWeapon = item;
+                Equipment[item.Slot] = item;
+            }
+            else
+            {
+                throw new InvalidEquipmentException("Invalid equipment type or level requirement.");
             }
         }
+    
 
         public override string Display()
         {
@@ -44,8 +55,6 @@ namespace DungeonMaster.Models.HeroClasses
             stringBuilder.AppendLine($"Strength: {LevelAttributes.Strength}");
             stringBuilder.AppendLine($"Dexterity: {LevelAttributes.Dexterity}");
             stringBuilder.AppendLine($"Intelligence: {LevelAttributes.Intelligence}");
-            if (EquippedWeapon != null)
-                stringBuilder.AppendLine($"Equipped Weapon: {EquippedWeapon.Name}");
 
             return stringBuilder.ToString();
         }

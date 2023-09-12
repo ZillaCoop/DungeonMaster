@@ -1,5 +1,6 @@
 ﻿using DungeonMaster.Models.Enums;
 using DungeonMaster.Models.Equipment;
+using DungeonMaster.Models.Exceptions;
 using DungeonMaster.Models.Utilities;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,8 @@ namespace DungeonMaster.Models.HeroClasses
 
     {
 
-        public Item EquippedWeapon { get; protected set; }
+        protected override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Dagger, WeaponType.Sword };
+        protected override List<ArmorType> ValidArmorTypes => new List<ArmorType> { ArmorType.Leather, ArmorType.Mail };
 
         public Swashbuckler(string name) : base(name)
         {
@@ -31,9 +33,17 @@ namespace DungeonMaster.Models.HeroClasses
         }
         public override void Equip(Item item)
         {
-            if (item.Slot == Slot.Weapon)
+            if (item is Weapon weapon && ValidWeaponTypes.Contains(weapon.WeaponType))
             {
-                EquippedWeapon = item;
+                Equipment[item.Slot] = item;
+            }
+            else if (item is Armor armor && ValidArmorTypes.Contains(armor.ArmorType))
+            {
+                Equipment[item.Slot] = item;
+            }
+            else
+            {
+                throw new InvalidEquipmentException("Invalid equipment type or level requirement.");
             }
         }
 
@@ -46,8 +56,6 @@ namespace DungeonMaster.Models.HeroClasses
             stringBuilder.AppendLine($"Strength: {LevelAttributes.Strength}");
             stringBuilder.AppendLine($"Dexterity: {LevelAttributes.Dexterity}");
             stringBuilder.AppendLine($"Intelligence: {LevelAttributes.Intelligence}");
-            if (EquippedWeapon != null)
-                stringBuilder.AppendLine($"Equipped Weapon: {EquippedWeapon.Name}");
 
             return stringBuilder.ToString();
         }
