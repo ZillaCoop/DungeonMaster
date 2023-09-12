@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonMaster.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,13 @@ namespace DungeonMaster.Models.Equipment
         //Doesn't need to be changed after creation. Therefore no sets.
         public String Name { get; }
         public int RequiredLevel { get; }
-        //public Slot Slot { get; }
+        public Slot Slot { get; }
 
-        protected Item(string name, int requiredLevel /*, Slot slot */) {
+        //Protected so only derived classes can access or use the constructor
+        protected Item(string name, int requiredLevel, Slot slot) {
             Name = name;
             RequiredLevel = requiredLevel;
-            //Slot = slot;
+            Slot = slot;
         }
     }
 }
