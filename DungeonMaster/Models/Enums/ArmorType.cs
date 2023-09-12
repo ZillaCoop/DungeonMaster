@@ -8,5 +8,9 @@ namespace DungeonMaster.Models.Enums
 {
     public enum ArmorType
     {
+        Cloth,
+        Leather,
+        Mail,
+        Plate
     }
 }
