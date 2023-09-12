@@ -1,4 +1,6 @@
-﻿using DungeonMaster.Models.HeroClasses;
+﻿using DungeonMaster.Models.Enums;
+using DungeonMaster.Models.Equipment;
+using DungeonMaster.Models.HeroClasses;
 
 namespace DungeonMaster
 {
@@ -24,6 +26,12 @@ namespace DungeonMaster
             Console.WriteLine(jens.Display());
             jonathan.LevelUp();
             jonathan.LevelUp();
+            Console.WriteLine(jonathan.Display());
+
+            Console.WriteLine("Equipping");
+            Console.WriteLine("---------");
+            Weapon hatchet = new Weapon("Hatchet", 1, WeaponType.Hatchet, 2);
+            jonathan.Equip(hatchet);
             Console.WriteLine(jonathan.Display());
             
         }
