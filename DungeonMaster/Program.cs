@@ -40,13 +40,16 @@ namespace DungeonMaster
             try
             {
                 jens.Equip(bow); // Jens can equip a bow
+                Console.WriteLine($"{bow.Name} equipped!");
                 jonathan.Equip(plateArmor); // Jonathan can equip plate armor
+                Console.WriteLine($"{plateArmor.Name} equipped!");
                 jens.Equip(sword); // This will throw an exception as Jens can't equip a sword
             }
             catch (InvalidEquipmentException ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine($"Error: {sword.Name} could not be equipped. {ex.Message}");
             }
+
 
         }
 
