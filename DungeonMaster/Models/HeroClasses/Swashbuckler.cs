@@ -51,7 +51,7 @@ namespace DungeonMaster.Models.HeroClasses
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine($"Name: {Name}");
-            stringBuilder.AppendLine("Class: Barbarian");
+            stringBuilder.AppendLine("Class: Swashbuckler");
             stringBuilder.AppendLine($"Level: {Level}");
             stringBuilder.AppendLine($"Strength: {LevelAttributes.Strength}");
             stringBuilder.AppendLine($"Dexterity: {LevelAttributes.Dexterity}");

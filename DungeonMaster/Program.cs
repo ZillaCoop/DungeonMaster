@@ -10,47 +10,34 @@ namespace DungeonMaster
     {
         static void Main(string[] args)
         {
-            Hero jens = new Archer("Jens the Archer");
-            Hero james = new Wizard("James the Wizard");
-            Hero jonathan = new Barbarian("Jonathan the Barbarian");
-            Hero jeffrey = new Swashbuckler("Jeffrey the Swashbuckler");
+            Console.WriteLine("Welcome to Dungeon Master!"); 
+            Console.WriteLine("What is your name?"); 
+            string name = Console.ReadLine(); 
             
-            Console.WriteLine("Base Classes");
-            Console.WriteLine("------------");
-            Console.WriteLine(jens.Display());
-            Console.WriteLine(james.Display());
-            Console.WriteLine(jonathan.Display());
-            Console.WriteLine(jeffrey.Display());
-
-            Console.WriteLine("Leveled Up");
-            Console.WriteLine("----------");
-            jens.LevelUp();
-            Console.WriteLine(jens.Display());
-            jonathan.LevelUp();
-            jonathan.LevelUp();
-            Console.WriteLine(jonathan.Display());
-
-            Console.WriteLine("Equipping");
-            Console.WriteLine("---------");
-            Weapon bow = new Weapon("Long Bow", 1, WeaponType.Bow, 5);
-            Armor plateArmor = new Armor("Plate Mail", 1, ArmorType.Plate, new HeroAttribute(5, 0, 0));
-            Weapon sword = new Weapon("Sword", 1, WeaponType.Sword, 8);
-
-            // Attempt to equip items. Can be improved.
-            try
-            {
-                jens.Equip(bow); // Jens can equip a bow
-                Console.WriteLine($"{bow.Name} equipped!");
-                jonathan.Equip(plateArmor); // Jonathan can equip plate armor
-                Console.WriteLine($"{plateArmor.Name} equipped!");
-                jens.Equip(sword); // This will throw an exception as Jens can't equip a sword
+            Hero hero = null; 
+            
+            while (hero == null) { 
+                Console.WriteLine($"Hello {name}! Pick a class: (1)Barbarian, (2)Archer, (3)Swashbuckler, (4)Wizard"); 
+                string heroChoice = Console.ReadLine(); 
+                
+                switch (heroChoice) { 
+                    case "1": 
+                        hero = new Barbarian(name); 
+                        break; 
+                    case "2": 
+                        hero = new Archer(name); 
+                        break; 
+                    case "3": hero = new Swashbuckler(name); 
+                        break; 
+                    case "4": hero = new Wizard(name); 
+                        break; 
+                    default: Console.WriteLine("Invalid choice. Please pick a class number."); 
+                        break; 
+                } 
             }
-            catch (InvalidEquipmentException ex)
-            {
-                Console.WriteLine($"Error: {sword.Name} could not be equipped. {ex.Message}");
-            }
-
-
+            
+            Console.WriteLine($"Your {hero.GetType().Name} has been created! Here are your stats:"); 
+            Console.WriteLine(hero.Display());
         }
 
 
