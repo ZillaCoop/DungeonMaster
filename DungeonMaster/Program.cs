@@ -10,6 +10,7 @@ namespace DungeonMaster
     {
         static void Main(string[] args)
         {
+            //CHARACTER CREATION
             Console.WriteLine("Welcome to Dungeon Master!"); 
             Console.WriteLine("What is your name?"); 
             string name = Console.ReadLine(); 
@@ -38,6 +39,34 @@ namespace DungeonMaster
             
             Console.WriteLine($"Your {hero.GetType().Name} has been created! Here are your stats:"); 
             Console.WriteLine(hero.Display());
+
+            //GAMEPLAY
+            Console.WriteLine("You now have the opportunity to build your character. What do you want to do?");
+            Console.WriteLine("(1)Level up");
+            Console.WriteLine("(2)Equip weapon");
+            Console.WriteLine("(3)Equip armor");
+            string response;
+
+            while(true) { 
+
+                response = Console.ReadLine();
+
+                switch (response)
+                {
+                    case "1":
+                        hero.LevelUp();
+                        Console.WriteLine(hero.Display()); 
+                        break;
+                    default:
+                        Console.WriteLine("Please pick a correct number.");
+                        break;
+                }
+
+            }
+
+
+
+
         }
 
 
