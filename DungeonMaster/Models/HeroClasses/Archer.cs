@@ -13,8 +13,8 @@ namespace DungeonMaster.Models.HeroClasses
 {
     public class Archer : Hero
     {
-        protected override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Bow };
-        protected override List<ArmorType> ValidArmorTypes => new List<ArmorType> { ArmorType.Leather, ArmorType.Mail };
+        public override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Bow };
+        public override List<ArmorType> ValidArmorTypes => new List<ArmorType> { ArmorType.Leather, ArmorType.Mail };
 
 
         public Archer(string name) : base(name) {

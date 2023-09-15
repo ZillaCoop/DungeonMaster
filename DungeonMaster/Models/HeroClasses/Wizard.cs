@@ -14,8 +14,8 @@ namespace DungeonMaster.Models.HeroClasses
     internal class Wizard : Hero
     {
 
-        protected override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Staff, WeaponType.Wand };
-        protected override List<ArmorType> ValidArmorTypes => new List<ArmorType> { ArmorType.Cloth };
+        public override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Staff, WeaponType.Wand };
+        public override List<ArmorType> ValidArmorTypes => new List<ArmorType> { ArmorType.Cloth };
 
         public Wizard(string name) : base(name)
         {

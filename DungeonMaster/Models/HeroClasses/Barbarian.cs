@@ -12,8 +12,8 @@ namespace DungeonMaster.Models.HeroClasses
 {
     internal class Barbarian : Hero
     {
-        protected override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Hatchet, WeaponType.Mace, WeaponType.Sword };
-        protected override List<ArmorType> ValidArmorTypes => new List<ArmorType> { ArmorType.Plate, ArmorType.Mail };
+        public override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Hatchet, WeaponType.Mace, WeaponType.Sword };
+        public override List<ArmorType> ValidArmorTypes => new List<ArmorType> { ArmorType.Plate, ArmorType.Mail };
 
         public Barbarian(string name) : base(name)
         {

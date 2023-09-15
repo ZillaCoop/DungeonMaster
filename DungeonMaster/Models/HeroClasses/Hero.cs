@@ -15,8 +15,10 @@ namespace DungeonMaster.Models.HeroClasses
         public int Level { get; set; } = 1; //Sets default level to 1.
         public HeroAttribute LevelAttributes { get; set; }
 
-        protected abstract List<WeaponType> ValidWeaponTypes { get; }
-        protected abstract List<ArmorType> ValidArmorTypes { get; }
+        public Weapon WeaponEquipment { get; set; }
+
+        public abstract List<WeaponType> ValidWeaponTypes { get; }
+        public abstract List<ArmorType> ValidArmorTypes { get; }
 
 
         //Creates "container" for equipment and assigning temporary null values
@@ -41,7 +43,18 @@ namespace DungeonMaster.Models.HeroClasses
         public abstract string Display();
         public abstract void LevelUp();
         public abstract void Equip(Item item); //Remember to add validation checks for the weapons.
-        
+
+        public double Damage()
+        {
+            double weaponDamage;
+
+            if (Equipment[Slot.Weapon] is Weapon weapon)
+            {
+                weaponDamage = weapon.WeaponDamage + 1;
+            }
+            
+                return 1; 
+        }
 
 
     }

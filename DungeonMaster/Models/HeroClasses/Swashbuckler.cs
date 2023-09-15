@@ -15,8 +15,8 @@ namespace DungeonMaster.Models.HeroClasses
 
     {
 
-        protected override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Dagger, WeaponType.Sword };
-        protected override List<ArmorType> ValidArmorTypes => new List<ArmorType> { ArmorType.Leather, ArmorType.Mail };
+        public override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Dagger, WeaponType.Sword };
+        public override List<ArmorType> ValidArmorTypes => new List<ArmorType> { ArmorType.Leather, ArmorType.Mail };
 
         public Swashbuckler(string name) : base(name)
         {
