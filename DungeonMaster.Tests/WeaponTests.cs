@@ -5,7 +5,7 @@ using DungeonMaster.Models.Utilities;
 
 namespace DungeonMaster.Tests
 {
-    public class EquipmentTests
+    public class WeaponTests
     {
         [Fact]
         public void Weapon_Creation_InitializesName()

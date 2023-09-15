@@ -34,17 +34,27 @@ namespace DungeonMaster.Models.HeroClasses
 
         public override void Equip(Item item)
         {
-            if (item is Weapon weapon && ValidWeaponTypes.Contains(weapon.WeaponType))
+            if (item is Weapon weapon)
             {
+                if (!ValidWeaponTypes.Contains(weapon.WeaponType))
+                {
+                    throw new InvalidWeaponException("Invalid weapon type or level requirement.");
+                }
+
                 Equipment[item.Slot] = item;
             }
-            else if (item is Armor armor && ValidArmorTypes.Contains(armor.ArmorType))
+            else if (item is Armor armor)
             {
+                if (!ValidArmorTypes.Contains(armor.ArmorType))
+                {
+                    throw new InvalidArmorException("Invalid armor type or level requirement.");
+                }
+
                 Equipment[item.Slot] = item;
             }
             else
             {
-                throw new InvalidEquipmentException("Invalid equipment type or level requirement.");
+                throw new ArgumentException("Item must be a valid weapon or armor.");
             }
         }
 
