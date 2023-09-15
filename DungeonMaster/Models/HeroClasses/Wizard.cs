@@ -11,7 +11,7 @@ using System.Xml.Linq;
 
 namespace DungeonMaster.Models.HeroClasses
 {
-    internal class Wizard : Hero
+    public class Wizard : Hero
     {
 
         public override List<WeaponType> ValidWeaponTypes => new List<WeaponType> { WeaponType.Staff, WeaponType.Wand };
