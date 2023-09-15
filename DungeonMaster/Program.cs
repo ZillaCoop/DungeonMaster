@@ -12,6 +12,8 @@ namespace DungeonMaster
     {
         static void Main(string[] args)
         {
+          
+            /*
             // CHARACTER CREATION
             Console.WriteLine("Welcome to Dungeon Master!");
             Console.WriteLine("What is your name?");
@@ -149,7 +151,9 @@ namespace DungeonMaster
                         Console.WriteLine("Please pick a correct number.");
                         break;
                 }
-            }
+            }*/
         }
+            
     }
+            
 }
