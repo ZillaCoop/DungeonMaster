@@ -1,3 +1,5 @@
+using DungeonMaster.Models.Enums;
+using DungeonMaster.Models.Equipment;
 using DungeonMaster.Models.HeroClasses;
 using DungeonMaster.Models.Utilities;
 
@@ -114,4 +116,5 @@ namespace DungeonMaster.Tests
             Assert.Equal(13, hero.LevelAttributes.Intelligence);
         }
     }
+    
 }
