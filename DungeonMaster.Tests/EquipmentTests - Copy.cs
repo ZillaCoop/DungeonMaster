@@ -60,19 +60,44 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
-        public void Armor_Creation_InitializesCorrectArmorAttributes()
+        public void Armor_Creation_InitializesStrengthAttribute()
         {
             // Arrange 
-            string ArmorName = "Leather Helm";
+            string armorName = "Leather Helm";
 
             // Act
-            Armor leatherHelm = new Armor(ArmorName, 2, ArmorType.Leather, new HeroAttribute(3, 2, 3), Slot.Head);
+            Armor leatherHelm = new Armor(armorName, 2, ArmorType.Leather, new HeroAttribute(3, 2, 3), Slot.Head);
 
             // Assert
             Assert.Equal(3, leatherHelm.ArmorAttribute.Strength);
+        }
+
+        [Fact]
+        public void Armor_Creation_InitializesDexterityAttribute()
+        {
+            // Arrange 
+            string armorName = "Leather Helm";
+
+            // Act
+            Armor leatherHelm = new Armor(armorName, 2, ArmorType.Leather, new HeroAttribute(3, 2, 3), Slot.Head);
+
+            // Assert
             Assert.Equal(2, leatherHelm.ArmorAttribute.Dexterity);
+        }
+
+        [Fact]
+        public void Armor_Creation_InitializesIntelligenceAttribute()
+        {
+            // Arrange 
+            string armorName = "Leather Helm";
+
+            // Act
+            Armor leatherHelm = new Armor(armorName, 2, ArmorType.Leather, new HeroAttribute(3, 2, 3), Slot.Head);
+
+            // Assert
             Assert.Equal(3, leatherHelm.ArmorAttribute.Intelligence);
         }
+
     }
 
 

@@ -2,6 +2,7 @@ using DungeonMaster.Models.Enums;
 using DungeonMaster.Models.Equipment;
 using DungeonMaster.Models.HeroClasses;
 using DungeonMaster.Models.Utilities;
+using Xunit;
 
 namespace DungeonMaster.Tests
 {
@@ -49,7 +50,7 @@ namespace DungeonMaster.Tests
         }
 
         [Fact]
-        public void Barbarian_WhenLevelingUpFrom1To2_IncrementsAttributesCorrectly()
+        public void Barbarian_WhenLevelingUpFrom1To2_IncrementsLevelCorrectly()
         {
             // Arrange 
             string name = "Findow the Mighty";
@@ -60,13 +61,52 @@ namespace DungeonMaster.Tests
 
             // Assert
             Assert.Equal(2, hero.Level);
+        }
+
+        [Fact]
+        public void Barbarian_WhenLevelingUpFrom1To2_IncrementsStrengthCorrectly()
+        {
+            // Arrange 
+            string name = "Findow the Mighty";
+
+            // Act
+            Hero hero = new Barbarian(name);
+            hero.LevelUp();
+
+            // Assert
             Assert.Equal(8, hero.LevelAttributes.Strength);
+        }
+
+        [Fact]
+        public void Barbarian_WhenLevelingUpFrom1To2_IncrementsDexterityCorrectly()
+        {
+            // Arrange 
+            string name = "Findow the Mighty";
+
+            // Act
+            Hero hero = new Barbarian(name);
+            hero.LevelUp();
+
+            // Assert
             Assert.Equal(4, hero.LevelAttributes.Dexterity);
+        }
+
+        [Fact]
+        public void Barbarian_WhenLevelingUpFrom1To2_IncrementsIntelligenceCorrectly()
+        {
+            // Arrange 
+            string name = "Findow the Mighty";
+
+            // Act
+            Hero hero = new Barbarian(name);
+            hero.LevelUp();
+
+            // Assert
             Assert.Equal(2, hero.LevelAttributes.Intelligence);
         }
 
         [Fact]
-        public void Archer_WhenLevelingUpFrom1To2_IncrementsAttributesCorrectly()
+        public void Archer_WhenLevelingUpFrom1To2_IncrementsLevelCorrectly()
         {
             // Arrange 
             string name = "Gregory the Twitchy";
@@ -77,13 +117,52 @@ namespace DungeonMaster.Tests
 
             // Assert
             Assert.Equal(2, hero.Level);
+        }
+
+        [Fact]
+        public void Archer_WhenLevelingUpFrom1To2_IncrementsStrengthCorrectly()
+        {
+            // Arrange 
+            string name = "Gregory the Twitchy";
+
+            // Act
+            Hero hero = new Archer(name);
+            hero.LevelUp();
+
+            // Assert
             Assert.Equal(2, hero.LevelAttributes.Strength);
+        }
+
+        [Fact]
+        public void Archer_WhenLevelingUpFrom1To2_IncrementsDexterityCorrectly()
+        {
+            // Arrange 
+            string name = "Gregory the Twitchy";
+
+            // Act
+            Hero hero = new Archer(name);
+            hero.LevelUp();
+
+            // Assert
             Assert.Equal(12, hero.LevelAttributes.Dexterity);
+        }
+
+        [Fact]
+        public void Archer_WhenLevelingUpFrom1To2_IncrementsIntelligenceCorrectly()
+        {
+            // Arrange 
+            string name = "Gregory the Twitchy";
+
+            // Act
+            Hero hero = new Archer(name);
+            hero.LevelUp();
+
+            // Assert
             Assert.Equal(2, hero.LevelAttributes.Intelligence);
         }
 
         [Fact]
-        public void Swashbuckler_WhenLevelingUpFrom1To2_IncrementsAttributesCorrectly()
+        public void Swashbuckler_WhenLevelingUpFrom1To2_IncrementsLevelCorrectly()
         {
             // Arrange 
             string name = "Swash the Buckler";
@@ -94,13 +173,54 @@ namespace DungeonMaster.Tests
 
             // Assert
             Assert.Equal(2, hero.Level);
+        }
+
+        [Fact]
+        public void Swashbuckler_WhenLevelingUpFrom1To2_IncrementsStrengthCorrectly()
+        {
+            // Arrange 
+            string name = "Swash the Buckler";
+
+            // Act
+            Hero hero = new Swashbuckler(name);
+            hero.LevelUp();
+
+            // Assert
+
+
             Assert.Equal(4, hero.LevelAttributes.Strength);
+        }
+
+        [Fact]
+        public void Swashbuckler_WhenLevelingUpFrom1To2_IncrementsDexterityCorrectly()
+        {
+            // Arrange 
+            string name = "Swash the Buckler";
+
+            // Act
+            Hero hero = new Swashbuckler(name);
+            hero.LevelUp();
+
+            // Assert
             Assert.Equal(12, hero.LevelAttributes.Dexterity);
+        }
+
+        [Fact]
+        public void Swashbuckler_WhenLevelingUpFrom1To2_IncrementsIntelligenceCorrectly()
+        {
+            // Arrange 
+            string name = "Swash the Buckler";
+
+            // Act
+            Hero hero = new Swashbuckler(name);
+            hero.LevelUp();
+
+            // Assert
             Assert.Equal(2, hero.LevelAttributes.Intelligence);
         }
 
         [Fact]
-        public void Wizard_WhenLevelingUpFrom1To2_IncrementsAttributesCorrectly()
+        public void Wizard_WhenLevelingUpFrom1To2_IncrementsLevelCorrectly()
         {
             // Arrange 
             string name = "Merlyn the Swirlin";
@@ -111,10 +231,48 @@ namespace DungeonMaster.Tests
 
             // Assert
             Assert.Equal(2, hero.Level);
+        }
+
+        [Fact]
+        public void Wizard_WhenLevelingUpFrom1To2_IncrementsStrengthCorrectly()
+        {
+            // Arrange 
+            string name = "Merlyn the Swirlin";
+
+            // Act
+            Hero hero = new Wizard(name);
+            hero.LevelUp();
+
+            // Assert
             Assert.Equal(2, hero.LevelAttributes.Strength);
+        }
+
+        [Fact]
+        public void Wizard_WhenLevelingUpFrom1To2_IncrementsDexterityCorrectly()
+        {
+            // Arrange 
+            string name = "Merlyn the Swirlin";
+
+            // Act
+            Hero hero = new Wizard(name);
+            hero.LevelUp();
+
+            // Assert
             Assert.Equal(2, hero.LevelAttributes.Dexterity);
+        }
+
+        [Fact]
+        public void Wizard_WhenLevelingUpFrom1To2_IncrementsIntelligenceCorrectly()
+        {
+            // Arrange 
+            string name = "Merlyn the Swirlin";
+
+            // Act
+            Hero hero = new Wizard(name);
+            hero.LevelUp();
+
+            // Assert
             Assert.Equal(13, hero.LevelAttributes.Intelligence);
         }
     }
-    
 }
