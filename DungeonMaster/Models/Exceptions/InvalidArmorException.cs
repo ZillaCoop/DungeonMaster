@@ -3,7 +3,7 @@
 namespace DungeonMaster.Models.Exceptions
 {
     [Serializable]
-    internal class InvalidArmorException : Exception
+    public class InvalidArmorException : Exception
     {
         public InvalidArmorException()
         {

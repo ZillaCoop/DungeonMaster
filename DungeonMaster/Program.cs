@@ -12,7 +12,14 @@ namespace DungeonMaster
     {
         static void Main(string[] args)
         {
-          
+            Hero hero = new Swashbuckler("Jonathan");
+            Weapon dagger = new Weapon("DaggerSwagger from Hell", 97, WeaponType.Dagger, 219);
+            const string expectedMessage = "Weapon level requirement not met.";
+
+            // Act
+            hero.Equip(dagger);
+        }
+
             /*
             // CHARACTER CREATION
             Console.WriteLine("Welcome to Dungeon Master!");
@@ -156,4 +163,4 @@ namespace DungeonMaster
             
     }
             
-}
+

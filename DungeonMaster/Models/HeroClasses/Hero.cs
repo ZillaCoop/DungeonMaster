@@ -42,7 +42,7 @@ namespace DungeonMaster.Models.HeroClasses
 
         public abstract string Display();
         public abstract void LevelUp();
-        public abstract void Equip(Item item); //Remember to add validation checks for the weapons.
+        public abstract void Equip(Item item);
 
         public double Damage()
         {
