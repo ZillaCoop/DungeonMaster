@@ -12,15 +12,7 @@ namespace DungeonMaster
     {
         static void Main(string[] args)
         {
-            Hero hero = new Swashbuckler("Jonathan");
-            Weapon dagger = new Weapon("DaggerSwagger from Hell", 97, WeaponType.Dagger, 219);
-            const string expectedMessage = "Weapon level requirement not met.";
-
-            // Act
-            hero.Equip(dagger);
-        }
-
-            /*
+           /*
             // CHARACTER CREATION
             Console.WriteLine("Welcome to Dungeon Master!");
             Console.WriteLine("What is your name?");
@@ -55,7 +47,6 @@ namespace DungeonMaster
 
             Console.WriteLine($"Your {hero.GetType().Name} has been created! Here are your stats:");
             Console.WriteLine(hero.Display());
-            hero.Damage();
 
             // GAMEPLAY
             while (true)
@@ -133,13 +124,13 @@ namespace DungeonMaster
 
                         if (armorResponse == "1")
                         {
-                            Armor leather = new Armor("Leather", 1, ArmorType.Leather, new HeroAttribute(1, 10, 0));
+                            Armor leather = new Armor("Leather", 1, ArmorType.Leather, new HeroAttribute(1, 10, 0), Slot.Body);
                             hero.Equip(leather);
                             Console.WriteLine("Leather armor has been equipped!");
                         }
                         else if (armorResponse == "2")
                         {
-                            Armor plateMail = new Armor("Plate Mail", 1, ArmorType.Plate, new HeroAttribute(5, 0, 0));
+                            Armor plateMail = new Armor("Plate Mail", 1, ArmorType.Plate, new HeroAttribute(5, 0, 0), Slot.Body);
                             hero.Equip(plateMail);
                             Console.WriteLine("Plate Mail has been equipped!");
                         }
@@ -157,8 +148,12 @@ namespace DungeonMaster
                     default:
                         Console.WriteLine("Please pick a correct number.");
                         break;
-                }
+                } 
             }*/
+        }
+
+            
+           
         }
             
     }

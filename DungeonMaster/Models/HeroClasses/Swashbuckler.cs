@@ -79,6 +79,7 @@ namespace DungeonMaster.Models.HeroClasses
             stringBuilder.AppendLine($"Strength: {LevelAttributes.Strength}");
             stringBuilder.AppendLine($"Dexterity: {LevelAttributes.Dexterity}");
             stringBuilder.AppendLine($"Intelligence: {LevelAttributes.Intelligence}");
+            stringBuilder.AppendLine($"Damage: {TotalDamage()}");
 
             return stringBuilder.ToString();
         }
