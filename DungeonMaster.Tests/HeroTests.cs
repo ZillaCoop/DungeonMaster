@@ -357,5 +357,53 @@ namespace DungeonMaster.Tests
             Assert.Equal(18, hero.TotalAttributes().Intelligence);
         }
 
+        [Fact]
+        public void TotalAttributes_CalculateStrengthCorrectly_WhenHeroHasTwoPiecesOfArmor()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+            Armor robeOfDoom = new Armor("Robe of Doom", 1, ArmorType.Cloth, new HeroAttribute(0, 1, 10), Slot.Body);
+            Armor leggingsOfForgottenSouls = new Armor("Leggings of Forgotten Souls", 1, ArmorType.Cloth, new HeroAttribute(1, 1, 5), Slot.Legs);
+
+            // Act
+            hero.Equip(robeOfDoom);
+            hero.Equip(leggingsOfForgottenSouls); 
+
+            // Assert
+            Assert.Equal(2, hero.TotalAttributes().Strength);
+        }
+
+        [Fact]
+        public void TotalAttributes_CalculateDexterityCorrectly_WhenHeroHasTwoPiecesOfArmor()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+            Armor robeOfDoom = new Armor("Robe of Doom", 1, ArmorType.Cloth, new HeroAttribute(0, 1, 10), Slot.Body);
+            Armor leggingsOfForgottenSouls = new Armor("Leggings of Forgotten Souls", 1, ArmorType.Cloth, new HeroAttribute(1, 1, 5), Slot.Legs);
+
+            // Act
+            hero.Equip(robeOfDoom);
+            hero.Equip(leggingsOfForgottenSouls);
+
+            // Assert
+            Assert.Equal(3, hero.TotalAttributes().Dexterity);
+        }
+
+        [Fact]
+        public void TotalAttributes_CalculateIntelligenceCorrectly_WhenHeroHasTwoPiecesOfArmor()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+            Armor robeOfDoom = new Armor("Robe of Doom", 1, ArmorType.Cloth, new HeroAttribute(0, 1, 10), Slot.Body);
+            Armor leggingsOfForgottenSouls = new Armor("Leggings of Forgotten Souls", 1, ArmorType.Cloth, new HeroAttribute(1, 1, 5), Slot.Legs);
+
+            // Act
+            hero.Equip(robeOfDoom);
+            hero.Equip(leggingsOfForgottenSouls);
+
+            // Assert
+            Assert.Equal(23, hero.TotalAttributes().Intelligence);
+        }
+
     }
 }
