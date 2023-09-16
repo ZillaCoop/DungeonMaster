@@ -459,5 +459,77 @@ namespace DungeonMaster.Tests
             Assert.Equal(28, hero.TotalAttributes().Intelligence);
         }
 
+        [Fact]
+        public void HeroDamage_CalculateTotalDamageProperly_WhenNoWeaponIsEquipped()
+        {
+            // Arrange
+            string name = "James McSquiggly";
+
+            // Act
+            Hero hero = new Swashbuckler(name);
+            double expectedDamage = 1.1;
+            double actualDamage = hero.TotalDamage();
+
+            // Assert
+            Assert.Equal(expectedDamage, actualDamage, 1);
+        }
+
+        [Fact]
+        public void HeroDamage_CalculateTotalDamageProperly_WhenWeaponIsEquipped()
+        {
+            // Arrange
+            string name = "James McSquiggly";
+            Weapon dagger = new Weapon("Dagger of Swagger", 1, WeaponType.Dagger, 7);
+
+            // Act
+            Hero hero = new Swashbuckler(name);
+            hero.Equip(dagger);
+            double expectedDamage = 7.4; 
+            double actualDamage = hero.TotalDamage();
+
+            // Assert
+            Assert.Equal(expectedDamage, actualDamage, 2);
+        }
+
+        [Fact]
+        public void HeroDamage_CalculateTotalDamageProperly_WhenNewWeaponIsEquippedOverAlreadyEquippedWeapon()
+        {
+            // Arrange
+            string name = "James McSquiggly";
+            Weapon dagger = new Weapon("Dagger of Swagger", 1, WeaponType.Dagger, 7);
+            Weapon superDagger = new Weapon("Super Dagger of Swagger", 1, WeaponType.Dagger, 13);
+
+            // Act
+            Hero hero = new Swashbuckler(name);
+            hero.Equip(dagger);
+            hero.Equip(superDagger);
+            double expectedDamage = 13.8;
+            double actualDamage = hero.TotalDamage();
+
+            // Assert
+            Assert.Equal(expectedDamage, actualDamage, 2);
+        }
+
+        [Fact]
+        public void HeroDamage_CalculateTotalDamageProperly_WhenWeaponAndArmorIsEquipped()
+        {
+            // Arrange
+            string name = "James McSquiggly";
+            Weapon superDagger = new Weapon("Super Dagger of Swagger", 1, WeaponType.Dagger, 13);
+            Armor leatherHelm = new Armor("Leather Helm", 1, ArmorType.Leather, new HeroAttribute(2, 7, 0), Slot.Head);
+
+            // Act
+            Hero hero = new Swashbuckler(name);
+            hero.Equip(superDagger);
+            hero.Equip(leatherHelm);
+            double expectedDamage = 14.7;
+            double actualDamage = hero.TotalDamage();
+
+            // Assert
+            Assert.Equal(expectedDamage, actualDamage, 2);
+        }
+
+
+
     }
 }

@@ -61,22 +61,47 @@ namespace DungeonMaster.Models.HeroClasses
             
         }
 
+        public double TotalDamage()
+        {
+            double damagingAttribute = GetDamagingAttribute();
+            double weaponDamage = 0;
+
+            if(Equipment.ContainsKey(Slot.Weapon))
+            {
+                Weapon? weapon = Equipment[Slot.Weapon] as Weapon;
+                if (weapon != null)
+                {
+                    weaponDamage = weapon.WeaponDamage;
+                }
+                else weaponDamage = 1.0;
+            }
+
+            double totalDamage = weaponDamage * (1 + damagingAttribute/100);
+            double roundedTotalDamage = Math.Round(totalDamage, 1);
+
+            return roundedTotalDamage;
+        }
+
+        public double GetDamagingAttribute()
+        {
+            switch (this)
+            {
+                case Barbarian:
+                    return TotalAttributes().Strength;
+                case Wizard:
+                    return TotalAttributes().Intelligence;
+                case Swashbuckler:
+                case Archer:
+                    return TotalAttributes().Dexterity;
+                default:
+                    throw new InvalidOperationException("Invalid Hero class.");
+            }
+        }
+
 
         public abstract string Display();
         public abstract void LevelUp();
         public abstract void Equip(Item item);
-
-        public double Damage()
-        {
-            double weaponDamage;
-
-            if (Equipment[Slot.Weapon] is Weapon weapon)
-            {
-                weaponDamage = weapon.WeaponDamage + 1;
-            }
-            
-                return 1; 
-        }
 
 
     }
