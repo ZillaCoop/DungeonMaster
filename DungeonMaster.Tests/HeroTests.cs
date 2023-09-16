@@ -484,7 +484,7 @@ namespace DungeonMaster.Tests
             // Act
             Hero hero = new Swashbuckler(name);
             hero.Equip(dagger);
-            double expectedDamage = 7.4; 
+            double expectedDamage = 7.42; 
             double actualDamage = hero.TotalDamage();
 
             // Assert
@@ -503,7 +503,7 @@ namespace DungeonMaster.Tests
             Hero hero = new Swashbuckler(name);
             hero.Equip(dagger);
             hero.Equip(superDagger);
-            double expectedDamage = 13.8;
+            double expectedDamage = 13.78;
             double actualDamage = hero.TotalDamage();
 
             // Assert
@@ -522,14 +522,106 @@ namespace DungeonMaster.Tests
             Hero hero = new Swashbuckler(name);
             hero.Equip(superDagger);
             hero.Equip(leatherHelm);
-            double expectedDamage = 14.7;
+            double expectedDamage = 14.69;
             double actualDamage = hero.TotalDamage();
 
             // Assert
             Assert.Equal(expectedDamage, actualDamage, 2);
         }
 
+        [Fact]
+        public void Display_Swashbuckler_SwashbucklerIsDisplayedCorrectlyAfterCreation()
+        {
+            // Arrange
+            string name = "James McSquiggly";
 
+            // Act
+            Hero hero = new Swashbuckler(name);
 
+            string expectedDisplay = 
+                "Name: James McSquiggly\r\n" +
+                "Class: Swashbuckler\r\n" +
+                "Level: 1\r\nStrength: 2\r\n" +
+                "Dexterity: 6\r\n" +
+                "Intelligence: 1\r\n" +
+                "Damage: 1,06\r\n";
+
+            string actualDisplay = hero.Display();
+
+            // Assert
+            Assert.Equal(expectedDisplay, actualDisplay);
+        }
+
+        [Fact]
+        public void Display_Archer_ArcherIsDisplayedCorrectlyAfterCreation()
+        {
+            // Arrange
+            string name = "Archan Salvesen";
+
+            // Act
+            Hero hero = new Archer(name);
+
+            string expectedDisplay =
+                "Name: Archan Salvesen\r\n" +
+                "Class: Archer\r\n" +
+                "Level: 1\r\n" +
+                "Strength: 1\r\n" +
+                "Dexterity: 7\r\n" +
+                "Intelligence: 1\r\n" +
+                "Damage: 1,07\r\n";
+
+            string actualDisplay = hero.Display();
+
+            // Assert
+            Assert.Equal(expectedDisplay, actualDisplay);
+        }
+
+        [Fact]
+        public void Display_Barbarian_BarbarianIsDisplayedCorrectlyAfterCreation()
+        {
+            // Arrange
+            string name = "Bengal Barlomathew";
+
+            // Act
+            Hero hero = new Barbarian(name);
+
+            string expectedDisplay =
+                "Name: Bengal Barlomathew\r\n" +
+                "Class: Barbarian\r\n" +
+                "Level: 1\r\n" +
+                "Strength: 5\r\n" +
+                "Dexterity: 2\r\n" +
+                "Intelligence: 1\r\n" +
+                "Damage: 1,05\r\n";
+
+            string actualDisplay = hero.Display();
+
+            // Assert
+            Assert.Equal(expectedDisplay, actualDisplay);
+        }
+
+        [Fact]
+        public void Display_Wizard_WizardIsDisplayedCorrectlyAfterCreation()
+        {
+            // Arrange
+            string name = "Chengal";
+
+            // Act
+            Hero hero = new Wizard(name);
+
+            string expectedDisplay =
+                "Name: Chengal\r\n" +
+                "Class: Wizard\r\n" +
+                "Level: 1\r\n" +
+                "Strength: 1\r\n" +
+                "Dexterity: 1\r\n" +
+                "Intelligence: 8\r\n" +
+                "Damage: 1,08\r\n";
+
+            string actualDisplay = hero.Display();
+
+            // Assert
+            Assert.Equal(expectedDisplay, actualDisplay);
+        }
     }
 }

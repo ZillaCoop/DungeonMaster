@@ -77,7 +77,7 @@ namespace DungeonMaster.Models.HeroClasses
             }
 
             double totalDamage = weaponDamage * (1 + damagingAttribute/100);
-            double roundedTotalDamage = Math.Round(totalDamage, 1);
+            double roundedTotalDamage = Math.Round(totalDamage, 2);
 
             return roundedTotalDamage;
         }
