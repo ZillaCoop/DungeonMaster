@@ -82,7 +82,7 @@ namespace DungeonMaster.Models.HeroClasses
             return roundedTotalDamage;
         }
 
-        public double GetDamagingAttribute()
+        internal double GetDamagingAttribute()
         {
             switch (this)
             {
