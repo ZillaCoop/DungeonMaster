@@ -40,6 +40,28 @@ namespace DungeonMaster.Models.HeroClasses
             LevelAttributes = new HeroAttribute();
         }
 
+        public HeroAttribute TotalAttributes() { 
+            HeroAttribute totalAttributes = new HeroAttribute();
+
+            foreach (var item in Equipment.Values)
+            {
+                if (item is Armor armor)
+                {
+                    totalAttributes.Strength += armor.ArmorAttribute.Strength;
+                    totalAttributes.Dexterity += armor.ArmorAttribute.Dexterity;
+                    totalAttributes.Intelligence += armor.ArmorAttribute.Intelligence;
+                }
+            }
+
+            totalAttributes.Strength += LevelAttributes.Strength;
+            totalAttributes.Dexterity += LevelAttributes.Dexterity;
+            totalAttributes.Intelligence += LevelAttributes.Intelligence;
+
+            return totalAttributes;
+            
+        }
+
+
         public abstract string Display();
         public abstract void LevelUp();
         public abstract void Equip(Item item);

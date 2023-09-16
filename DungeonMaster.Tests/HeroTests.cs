@@ -2,6 +2,7 @@ using DungeonMaster.Models.Enums;
 using DungeonMaster.Models.Equipment;
 using DungeonMaster.Models.HeroClasses;
 using DungeonMaster.Models.Utilities;
+using System.Xml.Linq;
 using Xunit;
 
 namespace DungeonMaster.Tests
@@ -273,6 +274,45 @@ namespace DungeonMaster.Tests
 
             // Assert
             Assert.Equal(13, hero.LevelAttributes.Intelligence);
+        }
+
+        [Fact]
+        public void TotalAttributes_CalculateStrengthCorrectly_WhenHeroHasNoEquipment()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+
+            // Act
+            HeroAttribute expectedAttributes = hero.TotalAttributes();
+
+            // Assert
+            Assert.Equal(1, hero.TotalAttributes().Strength);
+        }
+
+        [Fact]
+        public void TotalAttributes_CalculateDexterityCorrectly_WhenHeroHasNoEquipment()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+
+            // Act
+            HeroAttribute expectedAttributes = hero.TotalAttributes();
+
+            // Assert
+            Assert.Equal(1, hero.TotalAttributes().Dexterity);
+        }
+
+        [Fact]
+        public void TotalAttributes_CalculateIntelligenceCorrectly_WhenHeroHasNoEquipment()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+
+            // Act
+            HeroAttribute expectedAttributes = hero.TotalAttributes();
+
+            // Assert
+            Assert.Equal(8, hero.TotalAttributes().Intelligence);
         }
     }
 }
