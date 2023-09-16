@@ -280,10 +280,10 @@ namespace DungeonMaster.Tests
         public void TotalAttributes_CalculateStrengthCorrectly_WhenHeroHasNoEquipment()
         {
             // Arrange 
-            Hero hero = new Wizard("Prince Charming");
+            string name = "Prince Charming";
 
             // Act
-            HeroAttribute expectedAttributes = hero.TotalAttributes();
+            Hero hero = new Wizard(name);
 
             // Assert
             Assert.Equal(1, hero.TotalAttributes().Strength);
@@ -293,10 +293,10 @@ namespace DungeonMaster.Tests
         public void TotalAttributes_CalculateDexterityCorrectly_WhenHeroHasNoEquipment()
         {
             // Arrange 
-            Hero hero = new Wizard("Prince Charming");
+            string name = "Prince Charming";
 
             // Act
-            HeroAttribute expectedAttributes = hero.TotalAttributes();
+            Hero hero = new Wizard(name);
 
             // Assert
             Assert.Equal(1, hero.TotalAttributes().Dexterity);
@@ -306,13 +306,56 @@ namespace DungeonMaster.Tests
         public void TotalAttributes_CalculateIntelligenceCorrectly_WhenHeroHasNoEquipment()
         {
             // Arrange 
-            Hero hero = new Wizard("Prince Charming");
+            string name = "Prince Charming";
 
             // Act
-            HeroAttribute expectedAttributes = hero.TotalAttributes();
+            Hero hero = new Wizard(name);
 
             // Assert
             Assert.Equal(8, hero.TotalAttributes().Intelligence);
         }
+
+        [Fact]
+        public void TotalAttributes_CalculateStrengthCorrectly_WhenHeroHasOnePieceOfArmor()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+            Armor robeOfDoom = new Armor("Robe of Doom", 1, ArmorType.Cloth, new HeroAttribute(0, 1, 10), Slot.Body);
+
+            // Act
+            hero.Equip(robeOfDoom);
+
+            // Assert
+            Assert.Equal(1, hero.TotalAttributes().Strength);
+        }
+
+        [Fact]
+        public void TotalAttributes_CalculateDexterityCorrectly_WhenHeroHasOnePieceOfArmor()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+            Armor robeOfDoom = new Armor("Robe of Doom", 1, ArmorType.Cloth, new HeroAttribute(0, 1, 10), Slot.Body);
+
+            // Act
+            hero.Equip(robeOfDoom);
+
+            // Assert
+            Assert.Equal(2, hero.TotalAttributes().Dexterity);
+        }
+
+        [Fact]
+        public void TotalAttributes_CalculateIntelligenceCorrectly_WhenHeroHasOnePieceOfArmor()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+            Armor robeOfDoom = new Armor("Robe of Doom", 1, ArmorType.Cloth, new HeroAttribute(0, 1, 10), Slot.Body);
+
+            // Act
+            hero.Equip(robeOfDoom);
+
+            // Assert
+            Assert.Equal(18, hero.TotalAttributes().Intelligence);
+        }
+
     }
 }
