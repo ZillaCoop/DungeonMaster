@@ -405,5 +405,59 @@ namespace DungeonMaster.Tests
             Assert.Equal(23, hero.TotalAttributes().Intelligence);
         }
 
+        [Fact]
+        public void TotalAttributes_CalculateStrengthCorrectly_WhenHeroReplacesAlreadyExistingArmor()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+            Armor robeOfDoom = new Armor("Robe of Doom", 1, ArmorType.Cloth, new HeroAttribute(0, 1, 10), Slot.Body);
+            Armor leggingsOfForgottenSouls = new Armor("Leggings of Forgotten Souls", 1, ArmorType.Cloth, new HeroAttribute(1, 1, 5), Slot.Legs);
+            Armor robeOfDoomCollectorsEdition = new Armor("Robe of Doom: Collectors Edition", 1, ArmorType.Cloth, new HeroAttribute(2, 3, 15), Slot.Body);
+
+            // Act
+            hero.Equip(robeOfDoom);
+            hero.Equip(leggingsOfForgottenSouls);
+            hero.Equip(robeOfDoomCollectorsEdition);
+
+            // Assert
+            Assert.Equal(4, hero.TotalAttributes().Strength);
+        }
+
+        [Fact]
+        public void TotalAttributes_CalculateDexterityCorrectly_WhenHeroReplacesAlreadyExistingArmor()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+            Armor robeOfDoom = new Armor("Robe of Doom", 1, ArmorType.Cloth, new HeroAttribute(0, 1, 10), Slot.Body);
+            Armor leggingsOfForgottenSouls = new Armor("Leggings of Forgotten Souls", 1, ArmorType.Cloth, new HeroAttribute(1, 1, 5), Slot.Legs);
+            Armor robeOfDoomCollectorsEdition = new Armor("Robe of Doom: Collectors Edition", 1, ArmorType.Cloth, new HeroAttribute(2, 3, 15), Slot.Body);
+
+            // Act
+            hero.Equip(robeOfDoom);
+            hero.Equip(leggingsOfForgottenSouls);
+            hero.Equip(robeOfDoomCollectorsEdition);
+
+            // Assert
+            Assert.Equal(5, hero.TotalAttributes().Dexterity);
+        }
+
+        [Fact]
+        public void TotalAttributes_CalculateIntelligenceCorrectly_WhenHeroReplacesAlreadyExistingArmor()
+        {
+            // Arrange 
+            Hero hero = new Wizard("Prince Charming");
+            Armor robeOfDoom = new Armor("Robe of Doom", 1, ArmorType.Cloth, new HeroAttribute(0, 1, 10), Slot.Body);
+            Armor leggingsOfForgottenSouls = new Armor("Leggings of Forgotten Souls", 1, ArmorType.Cloth, new HeroAttribute(1, 1, 5), Slot.Legs);
+            Armor robeOfDoomCollectorsEdition = new Armor("Robe of Doom: Collectors Edition", 1, ArmorType.Cloth, new HeroAttribute(2, 3, 15), Slot.Body);
+
+            // Act
+            hero.Equip(robeOfDoom);
+            hero.Equip(leggingsOfForgottenSouls);
+            hero.Equip(robeOfDoomCollectorsEdition);
+
+            // Assert
+            Assert.Equal(28, hero.TotalAttributes().Intelligence);
+        }
+
     }
 }
