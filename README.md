@@ -1,4 +1,7 @@
 # DungeonMaster
+<img src="https://github.com/ZillaCoop/DungeonMaster/assets/70030526/1f82eeb0-8ba0-4ba0-b3d2-90f68cbc798a" width="500" />
+
+
 DungeonMaster is an application where you can create, build and level up your characters.  
 There are four classes to choose from: Barbarian, Wizard, Swashbuckler and an Archer.  
 As you progress and level up, you can equip weapons and armor to boost your attributes.
