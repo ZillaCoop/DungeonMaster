@@ -1,5 +1,5 @@
 # DungeonMaster
-<img src="https://github.com/ZillaCoop/DungeonMaster/assets/70030526/1f82eeb0-8ba0-4ba0-b3d2-90f68cbc798a" width="450" />
+<img src="https://cutewallpaper.org/28/darkest-dungeon-wallpaper-triple-monitor/1099231901.jpg" width="325" />
 
 
 DungeonMaster is an application where you can create, build and level up your characters.  
